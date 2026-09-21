@@ -3,19 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Política de privacidad · Voces del Pasado</title>
+<title>Voces del Pasado</title>
+<meta name="description" content="Historias de figuras que cambiaron el mundo, contadas en menos de un minuto.">
 <style>
   :root {
     --fondo: #ffffff;
+    --superficie: #f7f6f3;
     --texto: #1d1d1b;
     --suave: #5c5c57;
     --borde: #e2e2dc;
     --acento: #2b5d8a;
+    --oro: #9a7b16;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --fondo: #161615; --texto: #ececea; --suave: #a8a8a1;
-      --borde: #34342f; --acento: #86b4dd;
+      --fondo: #12100e; --superficie: #1f1c19; --texto: #ececea;
+      --suave: #a8a8a1; --borde: #34342f; --acento: #86b4dd; --oro: #c9a227;
     }
   }
   * { box-sizing: border-box; }
@@ -23,90 +26,78 @@
     margin: 0; background: var(--fondo); color: var(--texto);
     font: 17px/1.65 Georgia, "Times New Roman", serif;
   }
-  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-  h1 { font-size: 1.7rem; line-height: 1.25; margin-bottom: 4px; }
-  h2 { font-size: 1.15rem; margin-top: 32px; }
-  .fecha { color: var(--suave); font-size: .95rem; margin-top: 0; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 64px; }
+  header { text-align: center; margin-bottom: 40px; }
+  .filete { width: 120px; height: 3px; background: var(--oro); margin: 0 auto 20px; }
+  h1 { font-size: 2.1rem; margin: 0 0 8px; }
+  .lema { color: var(--suave); letter-spacing: .08em; text-transform: uppercase; font-size: .85rem; margin: 0; }
+  h2 { font-size: 1.15rem; margin-top: 36px; }
   a { color: var(--acento); }
   ul { padding-left: 20px; }
-  li { margin-bottom: 6px; }
+  li { margin-bottom: 8px; }
+  .tarjeta {
+    background: var(--superficie); border: 1px solid var(--borde);
+    border-radius: 10px; padding: 20px; margin-top: 28px;
+  }
   footer {
-    margin-top: 40px; padding-top: 16px;
-    border-top: 1px solid var(--borde); color: var(--suave); font-size: .92rem;
+    margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--borde);
+    color: var(--suave); font-size: .92rem; display: flex; flex-wrap: wrap; gap: 16px;
   }
 </style>
 </head>
 <body>
 <main>
-  <h1>Política de privacidad</h1>
-  <p class="fecha">Voces del Pasado · Última actualización: 21 de septiembre de 2026</p>
+  <header>
+    <div class="filete"></div>
+    <h1>Voces del Pasado</h1>
+    <p class="lema">Historia en un minuto</p>
+  </header>
 
   <p>
-    Esta política describe cómo trata los datos la aplicación que uso para producir y
-    publicar los videos del canal <strong>Voces del Pasado</strong>. Es una herramienta
-    personal, de un solo usuario. No tiene usuarios registrados, no ofrece servicios a
-    terceros y no publica en canales ajenos.
+    Historias de figuras que cambiaron el mundo, contadas en menos de un minuto.
+    En cada video tomamos una persona real —científicos, artistas, exploradores,
+    gobernantes— y explicamos qué hizo, en qué época vivió y por qué su historia
+    sigue importando hoy.
   </p>
-
-  <h2>Qué datos se tratan</h2>
   <p>
-    Al conectar mi cuenta mediante OAuth 2.0, la aplicación recibe un token de acceso y un
-    token de actualización, y lee la información pública de mi propio canal: nombre,
-    descripción, URL personalizada e imagen de perfil. No se recopilan datos de otras
-    personas ni de otros canales, no se leen comentarios ni suscriptores, y no se descargan
-    videos de terceros.
+    Sin sensacionalismo y sin inventar: cuando algo es leyenda o está en discusión
+    entre historiadores, se dice. Español neutro, videos nuevos todos los días.
   </p>
 
-  <h2>Para qué se usan</h2>
+  <p>
+    <a href="https://www.youtube.com/@voces.pasado">Ver el canal en YouTube</a>
+  </p>
+
+  <h2>Cómo se hacen los videos</h2>
+  <p>
+    Uso una aplicación propia, de un solo usuario, que corre en mi servidor y me
+    ayuda a producir los videos del canal:
+  </p>
   <ul>
-    <li>Mostrar el nombre y la imagen de mi canal en el panel de la propia aplicación.</li>
-    <li>Subir mis videos a ese canal, con su título, descripción y categoría.</li>
+    <li>Propone una figura histórica que no se haya tratado antes y redacta un guion.</li>
+    <li>Genera la narración por síntesis de voz y busca imágenes de dominio público
+        o con licencia que permita uso comercial, acreditando autor y licencia.</li>
+    <li>Monta el video vertical con subtítulos.</li>
+    <li><strong>Yo reviso y apruebo cada guion antes de que se publique nada.</strong></li>
   </ul>
-  <p>No se usan para ningún otro fin, ni se comparten, ni se venden, ni hay publicidad.</p>
-
-  <h2>Dónde se guardan y cómo se protegen</h2>
   <p>
-    Los datos se guardan en una base de datos local, en un servidor privado bajo mi control.
-    Los tokens de OAuth se almacenan cifrados con Fernet (AES-128 en modo CBC con
-    autenticación HMAC); la clave de cifrado vive en una variable de entorno, fuera del
-    código y fuera del repositorio.
+    La aplicación solo accede a mi propio canal: lee su nombre e imagen para
+    mostrarlos en el panel, y sube mis videos. No accede a canales de terceros ni
+    recopila datos de otras personas.
   </p>
 
-  <h2>Cuánto tiempo se conservan</h2>
-  <p>
-    Hasta que desconecto la cuenta desde el panel. Al hacerlo, la aplicación revoca el token
-    ante Google y borra los datos guardados de esa cuenta.
-  </p>
+  <div class="tarjeta">
+    <p style="margin:0">
+      Detalles del tratamiento de datos en la
+      <a href="privacidad.html">política de privacidad</a>.
+    </p>
+  </div>
 
-  <h2>Servicios de terceros</h2>
-  <p>
-    La aplicación usa los Servicios de la API de YouTube. Al usarla acepto los
-    <a href="https://www.youtube.com/t/terms">Términos del Servicio de YouTube</a> y me
-    rige la <a href="https://policies.google.com/privacy">Política de Privacidad de Google</a>.
-    Puedo revocar el acceso en cualquier momento desde la
-    <a href="https://myaccount.google.com/permissions">página de permisos de mi cuenta de
-    Google</a>.
-  </p>
-  <p>
-    Las imágenes de los videos proceden de Wikimedia Commons y se usan solo con licencias
-    que permiten uso comercial, acreditando autor y licencia en la descripción de cada video.
-  </p>
-
-  <h2>Menores</h2>
-  <p>
-    El contenido es educativo, dirigido a público general, y los videos se marcan como no
-    destinados a menores.
-  </p>
-
-  <h2>Cambios</h2>
-  <p>
-    Si esta política cambia, se actualizará esta misma página con una nueva fecha.
-  </p>
-
-  <h2>Contacto</h2>
-  <p>pepitope769@gmail.com</p>
-
-  <footer>Voces del Pasado</footer>
+  <footer>
+    <a href="privacidad.html">Política de privacidad</a>
+    <a href="https://www.youtube.com/@voces.pasado">YouTube</a>
+    <span>Contacto: pepitope769@gmail.com</span>
+  </footer>
 </main>
 </body>
 </html>
